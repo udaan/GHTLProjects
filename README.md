@@ -1,2 +1,2 @@
 # GHTLProjects
-Practice Projects
+Projects for demonstration

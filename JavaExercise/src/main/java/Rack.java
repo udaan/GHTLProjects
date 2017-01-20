@@ -18,7 +18,7 @@ public class Rack {
     public void addBallAndSort(int number) {
         if (currentSize == 0) {
             originalSortedList[0] = number;
-            balls = new int[++currentSize];
+            balls = new int[currentSize + 1];
             balls[0] = number;
         } else {
             int position = currentSize;
@@ -26,16 +26,15 @@ public class Rack {
                 if (number < originalSortedList[i]) {
                     originalSortedList[i + 1] = originalSortedList[i];
                     position = i;
-                } else {
-                    break;
                 }
             }
 
             originalSortedList[position] = number;
-            currentSize++;
-            balls = new int[currentSize];
+            balls = new int[currentSize + 1];
 
-            System.arraycopy(originalSortedList, 0, balls, 0, currentSize);
+            System.arraycopy(originalSortedList, 0, balls, 0, currentSize + 1);
         }
+
+        currentSize++;
     }
 }

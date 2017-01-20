@@ -16,7 +16,16 @@ class NumberSpellerTest {
 
     @Test
     public void 'should return number in words'() {
-        Assert.assertEquals("zero", numberSpeller.spellOut(0))
         Assert.assertEquals("five", numberSpeller.spellOut(5))
+    }
+
+    @Test
+    public void 'should spell zero'() {
+        Assert.assertEquals("zero", numberSpeller.spellOut(0))
+    }
+
+    @Test
+    public void 'should spell one billion'() {
+        Assert.assertEquals("one billion", numberSpeller.spellOut(1000_000_000))
     }
 }

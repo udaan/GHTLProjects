@@ -17,5 +17,8 @@ class RackTest {
 
         rack.addBallAndSort(9)
         assert [9] == rack.getBalls()
+
+        rack.addBallAndSort(45)
+        assert [9, 45] == rack.getBalls()
     }
 }

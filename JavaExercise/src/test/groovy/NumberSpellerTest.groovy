@@ -51,6 +51,7 @@ class NumberSpellerTest {
         Assert.assertEquals("six hundred twenty-four", numberSpeller.spellOut(624))
         Assert.assertEquals("seven hundred eleven", numberSpeller.spellOut(711))
         Assert.assertEquals("one hundred five", numberSpeller.spellOut(105))
+        Assert.assertEquals("five hundred forty-two", numberSpeller.spellOut(542))
     }
 
     @Test
@@ -77,5 +78,18 @@ class NumberSpellerTest {
         Assert.assertEquals("nine hundred million two hundred", numberSpeller.spellOut(900_000_200))
         Assert.assertEquals("seven hundred thousand two hundred", numberSpeller.spellOut(700_200))
         Assert.assertEquals("seven hundred twelve thousand two hundred ninety-six", numberSpeller.spellOut(712_296))
+        Assert.assertEquals("one million forty-nine thousand eight hundred seventy-five", numberSpeller.spellOut(1_049_875))
+    }
+
+    @Test
+    public void 'should spell a number in thousands'() {
+        Assert.assertEquals('one thousand five hundred forty-two', numberSpeller.spellOut(1542))
+        Assert.assertEquals('three thousand', numberSpeller.spellOut(3000))
+    }
+
+    @Test
+    public void 'should spell a number in ten thousands'() {
+        Assert.assertEquals('twenty-three thousand two hundred twelve', numberSpeller.spellOut(23212))
+        Assert.assertEquals('ten thousand one hundred two', numberSpeller.spellOut(10102))
     }
 }

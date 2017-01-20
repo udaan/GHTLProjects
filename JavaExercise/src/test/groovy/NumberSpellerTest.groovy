@@ -42,5 +42,9 @@ class NumberSpellerTest {
     @Test
     public void 'should spell number in hundreds of thousand'() {
         Assert.assertEquals("nine hundred thousand", numberSpeller.spellOut(900_000))
+        Assert.assertEquals("eight hundred fifty thousand", numberSpeller.spellOut(850_000))
+        Assert.assertEquals("six hundred twenty-four thousand", numberSpeller.spellOut(624_000))
+        Assert.assertEquals("seven hundred eleven thousand", numberSpeller.spellOut(711_000))
+        Assert.assertEquals("one hundred five thousand", numberSpeller.spellOut(105_000))
     }
 }

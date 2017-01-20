@@ -39,10 +39,10 @@ public class NumberSpeller {
         }
 
         String millionPart = spellOutThreeDigits(number / 1_000_000, MILLION);
-        //        String thousandPart = spellOutThreeDigits(number / 1_000_000, THOUSAND);
+        String thousandPart = spellOutThreeDigits((number / 1_000) % 1_000, THOUSAND);
         String hundredPart = spellOutThreeDigits(number % 1_000, "");
 
-        return millionPart + hundredPart;
+        return millionPart + thousandPart + hundredPart;
     }
 
     private String spellOutThreeDigits(int number, String placeStr) {

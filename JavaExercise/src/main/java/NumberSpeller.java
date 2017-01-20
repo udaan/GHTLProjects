@@ -38,6 +38,10 @@ public class NumberSpeller {
             return BILLION;
         }
 
+        return createString(number);
+    }
+
+    private String createString(int number) {
         String millionPart = spellOutThreeDigits(number / 1_000_000, MILLION);
         String thousandPart = spellOutThreeDigits((number / 1_000) % 1_000, THOUSAND);
         String hundredPart = spellOutThreeDigits(number % 1_000, "");
@@ -64,10 +68,12 @@ public class NumberSpeller {
     private String spellOutThreeDigits(int number, String placeStr) {
         StringBuilder sb = new StringBuilder();
         if (number / 100 > 0) {
+            //100th place
             sb.append(UnitWords[number / 100]).append(SEPARATOR).append(HUNDRED);
         }
 
         if (number % 100 > 0) {
+            // 10th place
             int tensPlace = number % 100;
 
             if(sb.length() > 0) {
@@ -77,10 +83,12 @@ public class NumberSpeller {
             if (tensPlace > 20) {
                 sb.append(TensWords[tensPlace / 10]);
 
+                //Unit place
                 if (tensPlace % 10 > 0) {
                     sb.append(DIVIDER).append(UnitWords[tensPlace % 10]);
                 }
             } else {
+                //Unit place (which has no ten's place)
                 sb.append(UnitWords[tensPlace]);
             }
         }

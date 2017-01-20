@@ -24,6 +24,9 @@ public class NumberSpeller {
                                                     "eleven", "twelve", "thirteen", "fourteen", "fifteen",
                                                     "sixteen", "seventeen", "eighteen", "ninteen"};
 
+    private final String[] TensWords = new String[]{"", "", "twenty", "thirty", "forty", "fifty",
+                                                    "sixty", "seventy", "eighty", "ninty"};
+
     public String spellOut(int number) {
         //0 and 1 billion are checked directly.
         if (number == 0) {
@@ -42,25 +45,28 @@ public class NumberSpeller {
     }
 
     private String spellOutThreeDigits(int number, String placeStr) {
-        String words = "";
+        StringBuilder sb = new StringBuilder();
         if (number / 100 > 0) {
-            words += UnitWords[number / 100];
-            words += SEPARATOR;
-            words += HUNDRED;
+            sb.append(UnitWords[number / 100]).append(SEPARATOR).append(HUNDRED);
         }
 
         if (number % 100 > 0) {
             int tensPlace = number % 100;
-            if (number < 20) {
-                words += UnitWords[tensPlace];
+            if (tensPlace > 20) {
+                if(sb.length() > 0) {
+                    sb.append(SEPARATOR);
+                }
+
+                sb.append(TensWords[tensPlace / 10]);
+            } else {
+                sb.append(UnitWords[tensPlace]);
             }
         }
 
-        if (!words.isEmpty() && !placeStr.isEmpty()) {
-            words += SEPARATOR;
-            words += placeStr;
+        if (sb.length() > 0 && !placeStr.isEmpty()) {
+            sb.append(SEPARATOR).append(placeStr);
         }
 
-        return words;
+        return sb.toString();
     }
 }

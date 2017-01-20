@@ -30,6 +30,7 @@ class NumberSpellerTest {
     }
 
     @Test
+    // number to word conversion - courtesy google
     public void 'should spell number in hundreds of million'() {
         Assert.assertEquals("nine hundred million", numberSpeller.spellOut(900_000_000))
         Assert.assertEquals("eight hundred fifty million", numberSpeller.spellOut(850_000_000))

@@ -18,6 +18,7 @@ public class NumberSpeller {
     private final String THOUSAND = "thousand";
     private final String HUNDRED = "hundred";
     private final String SEPARATOR = " ";
+    private final String DIVIDER = "-";
 
     private final String[] UnitWords = new String[]{"zero", "one", "two", "three", "four", "five",
                                                     "six", "seven", "eight", "nine", "ten",
@@ -52,12 +53,17 @@ public class NumberSpeller {
 
         if (number % 100 > 0) {
             int tensPlace = number % 100;
-            if (tensPlace > 20) {
-                if(sb.length() > 0) {
-                    sb.append(SEPARATOR);
-                }
 
+            if(sb.length() > 0) {
+                sb.append(SEPARATOR);
+            }
+
+            if (tensPlace > 20) {
                 sb.append(TensWords[tensPlace / 10]);
+
+                if (tensPlace % 10 > 0) {
+                    sb.append(DIVIDER).append(UnitWords[tensPlace % 10]);
+                }
             } else {
                 sb.append(UnitWords[tensPlace]);
             }

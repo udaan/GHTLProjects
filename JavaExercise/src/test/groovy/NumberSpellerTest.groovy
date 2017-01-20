@@ -57,4 +57,13 @@ class NumberSpellerTest {
         Assert.assertEquals("seven hundred eleven", numberSpeller.spellOut(711))
         Assert.assertEquals("one hundred five", numberSpeller.spellOut(105))
     }
+
+    @Test
+    public void 'should spell number in tens'() {
+        Assert.assertEquals("ninety", numberSpeller.spellOut(90))
+        Assert.assertEquals("eighty-five", numberSpeller.spellOut(85))
+        Assert.assertEquals("twenty-four", numberSpeller.spellOut(24))
+        Assert.assertEquals("eleven", numberSpeller.spellOut(11))
+        Assert.assertEquals("ten", numberSpeller.spellOut(10))
+    }
 }

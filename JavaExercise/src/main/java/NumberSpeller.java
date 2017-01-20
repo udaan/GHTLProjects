@@ -26,7 +26,7 @@ public class NumberSpeller {
                                                     "sixteen", "seventeen", "eighteen", "ninteen"};
 
     private final String[] TensWords = new String[]{"", "", "twenty", "thirty", "forty", "fifty",
-                                                    "sixty", "seventy", "eighty", "ninty"};
+                                                    "sixty", "seventy", "eighty", "ninety"};
 
     public String spellOut(int number) {
         //0 and 1 billion are checked directly.

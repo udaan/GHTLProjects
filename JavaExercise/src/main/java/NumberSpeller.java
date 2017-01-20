@@ -42,7 +42,23 @@ public class NumberSpeller {
         String thousandPart = spellOutThreeDigits((number / 1_000) % 1_000, THOUSAND);
         String hundredPart = spellOutThreeDigits(number % 1_000, "");
 
-        return millionPart + thousandPart + hundredPart;
+        StringBuilder sb = new StringBuilder(millionPart);
+
+        if(!thousandPart.isEmpty()) {
+            if(!millionPart.isEmpty()) {
+                sb.append(SEPARATOR);
+            }
+            sb.append(thousandPart);
+        }
+
+        if(!hundredPart.isEmpty()) {
+            if(!millionPart.isEmpty() || !thousandPart.isEmpty()) {
+                sb.append(SEPARATOR);
+            }
+            sb.append(hundredPart);
+        }
+
+        return sb.toString();
     }
 
     private String spellOutThreeDigits(int number, String placeStr) {

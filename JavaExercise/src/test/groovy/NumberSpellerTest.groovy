@@ -71,5 +71,11 @@ class NumberSpellerTest {
     @Test
     public void 'should spell numbers with digits in almost all places'() {
         Assert.assertEquals("nine hundred million three hundred twelve", numberSpeller.spellOut(900_000_312))
+        Assert.assertEquals("nine hundred million five hundred forty-six thousand three hundred twelve", numberSpeller.spellOut(900_546_312))
+        Assert.assertEquals("nine hundred million five hundred forty-six thousand two hundred", numberSpeller.spellOut(900_546_200))
+        Assert.assertEquals("nine hundred million seven hundred thousand two hundred", numberSpeller.spellOut(900_700_200))
+        Assert.assertEquals("nine hundred million two hundred", numberSpeller.spellOut(900_000_200))
+        Assert.assertEquals("seven hundred thousand two hundred", numberSpeller.spellOut(700_200))
+        Assert.assertEquals("seven hundred twelve thousand two hundred ninety-six", numberSpeller.spellOut(712_296))
     }
 }

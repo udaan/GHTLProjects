@@ -1,3 +1,5 @@
+import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 
 /**
@@ -5,8 +7,16 @@ import org.junit.Test
  */
 class NumberSpellerTest {
 
+    private def numberSpeller
+
+    @Before
+    public void setUp() {
+        numberSpeller = new NumberSpeller()
+    }
+
     @Test
-    public void 'demo test'() {
-        assert (1 + 0) == 1
+    public void 'should return number in words'() {
+        Assert.assertEquals("zero", numberSpeller.spellOut(0))
+        Assert.assertEquals("five", numberSpeller.spellOut(5))
     }
 }

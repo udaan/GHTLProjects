@@ -5,7 +5,7 @@ import org.junit.Test
 /**
  * Created by GHTL on 20/01/2017.
  *
- * number to word conversion - courtesy google
+ * number in words - courtesy google
  */
 class NumberSpellerTest {
 
@@ -65,5 +65,11 @@ class NumberSpellerTest {
         Assert.assertEquals("twenty-four", numberSpeller.spellOut(24))
         Assert.assertEquals("eleven", numberSpeller.spellOut(11))
         Assert.assertEquals("ten", numberSpeller.spellOut(10))
+    }
+
+    @Test
+    public void 'should spell number in ones'() {
+        Assert.assertEquals("nine", numberSpeller.spellOut(9))
+        Assert.assertEquals("one", numberSpeller.spellOut(1))
     }
 }

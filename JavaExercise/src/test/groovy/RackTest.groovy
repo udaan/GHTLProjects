@@ -14,5 +14,8 @@ class RackTest {
     @Test
     public void 'should sort the balls as they are added'() {
         assert [] == rack.getBalls()
+
+        rack.addBallAndSort(9)
+        assert [9] == rack.getBalls()
     }
 }

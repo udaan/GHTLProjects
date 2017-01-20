@@ -14,6 +14,10 @@
  */
 public class NumberSpeller {
     private static final String BILLION = "one billion";
+    private final String MILLION = "million";
+    private final String THOUSAND = "thousand";
+    private final String HUNDRED = "hundred";
+    private final String SEPARATOR = " ";
 
     private final String[] UnitWords = new String[]{"zero", "one", "two", "three", "four", "five",
                                                     "six", "seven", "eight", "nine", "ten",
@@ -30,9 +34,31 @@ public class NumberSpeller {
             return BILLION;
         }
 
+        String millionPart = spellOutThreeDigits(number / 1_000_000, MILLION);
+        //        String thousandPart = spellOutThreeDigits(number / 1_000_000, THOUSAND);
+        String hundredPart = spellOutThreeDigits(number % 1_000, "");
+
+        return millionPart + hundredPart;
+    }
+
+    private String spellOutThreeDigits(int number, String placeStr) {
         String words = "";
-        if (number < 20) {
-            words += UnitWords[number];
+        if (number / 100 > 0) {
+            words += UnitWords[number / 100];
+            words += SEPARATOR;
+            words += HUNDRED;
+        }
+
+        if (number % 100 > 0) {
+            int tensPlace = number % 100;
+            if (number < 20) {
+                words += UnitWords[tensPlace];
+            }
+        }
+
+        if (!words.isEmpty() && !placeStr.isEmpty()) {
+            words += SEPARATOR;
+            words += placeStr;
         }
 
         return words;

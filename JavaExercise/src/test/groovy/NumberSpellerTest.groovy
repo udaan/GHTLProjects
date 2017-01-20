@@ -16,7 +16,6 @@ class NumberSpellerTest {
 
     @Test
     public void 'should return number in words'() {
-        Assert.assertEquals("nine hundred million", numberSpeller.spellOut(900_000_000))
         Assert.assertEquals("five", numberSpeller.spellOut(5))
     }
 
@@ -28,5 +27,11 @@ class NumberSpellerTest {
     @Test
     public void 'should spell one billion'() {
         Assert.assertEquals("one billion", numberSpeller.spellOut(1000_000_000))
+    }
+
+    @Test
+    public void 'should spell number in hundreds of million'() {
+        Assert.assertEquals("nine hundred million", numberSpeller.spellOut(900_000_000))
+        Assert.assertEquals("eight hundred fifty million", numberSpeller.spellOut(850_000_000))
     }
 }

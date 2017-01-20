@@ -17,11 +17,6 @@ class NumberSpellerTest {
     }
 
     @Test
-    public void 'should return number in words'() {
-        Assert.assertEquals("five", numberSpeller.spellOut(5))
-    }
-
-    @Test
     public void 'should spell zero'() {
         Assert.assertEquals("zero", numberSpeller.spellOut(0))
     }
@@ -71,5 +66,10 @@ class NumberSpellerTest {
     public void 'should spell number in ones'() {
         Assert.assertEquals("nine", numberSpeller.spellOut(9))
         Assert.assertEquals("one", numberSpeller.spellOut(1))
+    }
+
+    @Test
+    public void 'should spell numbers with digits in almost all places'() {
+        Assert.assertEquals("nine hundred million three hundred twelve", numberSpeller.spellOut(900_000_312))
     }
 }

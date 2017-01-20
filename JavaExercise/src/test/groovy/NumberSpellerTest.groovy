@@ -4,6 +4,8 @@ import org.junit.Test
 
 /**
  * Created by GHTL on 20/01/2017.
+ *
+ * number to word conversion - courtesy google
  */
 class NumberSpellerTest {
 
@@ -30,7 +32,6 @@ class NumberSpellerTest {
     }
 
     @Test
-    // number to word conversion - courtesy google
     public void 'should spell number in hundreds of million'() {
         Assert.assertEquals("nine hundred million", numberSpeller.spellOut(900_000_000))
         Assert.assertEquals("eight hundred fifty million", numberSpeller.spellOut(850_000_000))
@@ -46,5 +47,14 @@ class NumberSpellerTest {
         Assert.assertEquals("six hundred twenty-four thousand", numberSpeller.spellOut(624_000))
         Assert.assertEquals("seven hundred eleven thousand", numberSpeller.spellOut(711_000))
         Assert.assertEquals("one hundred five thousand", numberSpeller.spellOut(105_000))
+    }
+
+    @Test
+    public void 'should spell number in hundreds'() {
+        Assert.assertEquals("nine hundred", numberSpeller.spellOut(900))
+        Assert.assertEquals("eight hundred fifty", numberSpeller.spellOut(850))
+        Assert.assertEquals("six hundred twenty-four", numberSpeller.spellOut(624))
+        Assert.assertEquals("seven hundred eleven", numberSpeller.spellOut(711))
+        Assert.assertEquals("one hundred five", numberSpeller.spellOut(105))
     }
 }

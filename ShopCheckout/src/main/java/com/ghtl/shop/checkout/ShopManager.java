@@ -10,6 +10,12 @@ public class ShopManager implements Invoicable {
      */
     @Override
     public double checkout(Basket basket) {
-        return 0;
+        double total = 0;
+        if(basket != null) {
+            for (Item item : basket.getItems()) {
+                total += item.getPrice() * item.getWeight();
+            }
+        }
+        return total;
     }
 }

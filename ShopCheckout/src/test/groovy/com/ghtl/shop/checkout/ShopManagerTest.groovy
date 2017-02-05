@@ -17,7 +17,7 @@ class ShopManagerTest {
     @Test
     public void 'if no item is added total cost of basket is 0'() {
         Basket basket = new Basket()
-        assert 0.00 == shopManager.checkout(basket)
+        assert 0 == shopManager.checkout(basket)
     }
 
     @Test

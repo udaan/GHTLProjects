@@ -23,7 +23,17 @@ class ShopManagerTest {
     @Test
     public void 'total cost is calculated for basket with one item'() {
         Basket basket = new Basket()
-        basket.addItem(new Item("banana", 1, 1.5))
+        basket.addItem(new Item(ItemTestData.Bananas.name, 1, ItemTestData.Bananas.price))
         assert 1.5 == shopManager.checkout(basket)
+    }
+
+    @Test
+    public void 'total cost is calculated for basket with multiple items'() {
+        Basket basket = new Basket()
+        basket.addItem(new Item(ItemTestData.Bananas.name, 0.5, ItemTestData.Bananas.price))
+        basket.addItem(new Item(ItemTestData.Apples.name, 1.2, ItemTestData.Apples.price))
+        basket.addItem(new Item(ItemTestData.Peaches.name, 0.25, ItemTestData.Peaches.price))
+        def test_total = (0.5 * ItemTestData.Bananas.price) + (1.2 * ItemTestData.Apples.price) + (0.25 * ItemTestData.Peaches.price)
+        assert test_total == shopManager.checkout(basket)
     }
 }

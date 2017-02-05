@@ -6,14 +6,14 @@ package com.ghtl.shop.checkout
    Stub for Item Data
  */
 enum ItemTestData {
-    Bananas("Bananas", 1.00),
-    Oranges("Oranges" , 2.20),
-    Apples ("Apples", 3.40),
+    Bananas("Bananas", 1.5),
+    Oranges("Oranges" , 2.2),
+    Apples ("Apples", 3.4),
     Lemons ("Lemons", 0.45),
-    Peaches ("Peaches", 1.60)
+    Peaches ("Peaches", 1.6)
 
-    private final String name
-    private double price
+    String name
+    double price
 
     ItemTestData(String name, double price) {
         this.name = name

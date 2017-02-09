@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Process {
     public static void main(String[] args) {
-        ApplicationContext beanFactory = new ClassPathXmlApplicationContext("shop.xml");
+        ApplicationContext beanFactory = new ClassPathXmlApplicationContext("META-INF/com/ghtl/online/shop/shop.xml");
         DemoClass myBean = (DemoClass) beanFactory.getBean("demo");
         myBean.printHello();
     }

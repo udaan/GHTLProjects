@@ -1,0 +1,32 @@
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/integration"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Component scan to find all Spring components -->
+    <context:component-scan base-package="com.ghtl.online.shop" />
+
+    <beans:bean id="demo" class="com.ghtl.online.shop.DemoClass">
+        <beans:property name="name" value="udaan"/>
+    </beans:bean>
+
+    <gateway id="shop" service-interface="com.ghtl.online.shop.service.Shop"/>
+
+    <beans:bean id="validatorService" class="com.ghtl.online.shop.service.ValidatorService">
+    </beans:bean>
+
+    <!-- A Spring Integration channel -->
+    <channel id="orderValidatorChannel" />
+
+    <!-- A Spring Integration adapter that routes messages sent to the helloWorldChannel to the bean named "helloServiceImpl"'s hello() method -->
+    <service-activator input-channel="orderValidatorChannel" ref="validatorService" method="validate" />
+
+</beans:beans>

@@ -1,6 +1,7 @@
 package com.ghtl.online.shop;
 
 import com.ghtl.online.shop.domain.Order;
+import com.ghtl.online.shop.domain.OrderItem;
 import com.ghtl.online.shop.domain.OrderType;
 import com.ghtl.online.shop.service.Shop;
 import org.junit.Test;
@@ -9,7 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by GHTL on 09/02/2017.
@@ -26,6 +28,13 @@ public class ShopTest {
 
     @Test
     public void test() {
-        shop.placeOrder(new Order(123, 1, OrderType.MP3));
+        shop.placeOrder(createOrder());
+    }
+
+    private static Order createOrder() {
+        OrderItem orderItem = new OrderItem(1.2f, 2);
+        List<OrderItem> items = new ArrayList<OrderItem>();
+        items.add(orderItem);
+        return new Order(1, OrderType.EBOOK, items);
     }
 }

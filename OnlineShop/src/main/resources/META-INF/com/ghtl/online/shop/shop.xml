@@ -4,8 +4,6 @@
              xmlns:context="http://www.springframework.org/schema/context"
              xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
-    http://www.springframework.org/schema/aop
-    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
     http://www.springframework.org/schema/integration
     http://www.springframework.org/schema/integration/spring-integration.xsd
     http://www.springframework.org/schema/context
@@ -25,8 +23,15 @@
 
     <!-- A Spring Integration channel -->
     <channel id="orderValidatorChannel" />
+    <channel id="orderItemsChannel" />
 
     <!-- A Spring Integration adapter that routes messages sent to the helloWorldChannel to the bean named "helloServiceImpl"'s hello() method -->
-    <service-activator input-channel="orderValidatorChannel" ref="validatorService" method="validate" />
+    <service-activator input-channel="orderValidatorChannel" output-channel="ordersChannel" ref="validatorService" method="validate" />
+
+    <!-- each order has a collection of order items that is split apart to be
+		processed -->
+    <splitter input-channel="ordersChannel" ref="orderSplitter"
+                  output-channel="orderItemsChannel" />
+    <beans:bean id="orderSplitter" class="com.ghtl.online.shop.service.OrderSplitter" />
 
 </beans:beans>

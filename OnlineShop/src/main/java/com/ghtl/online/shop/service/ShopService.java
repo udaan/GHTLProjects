@@ -4,7 +4,6 @@ import com.ghtl.online.shop.domain.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;
-import org.springframework.stereotype.Service;
 
 /**
  * Created by GHTL on 09/02/2017.

@@ -1,37 +1,42 @@
 package com.ghtl.online.shop.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by GHTL on 09/02/2017.
  */
 public class Order {
     private int orderId;
-    private int quantity;
     private OrderType orderType;
+    private List<OrderItem> orderItems;
 
-    public Order(int orderId, int quantity, OrderType orderType) {
+    public Order(int orderId, OrderType orderType, List<OrderItem> orderItems) {
         this.orderId = orderId;
-        this.quantity = quantity;
         this.orderType = orderType;
+        this.orderItems = orderItems;
     }
 
     public int getOrderId() {
         return orderId;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
     public OrderType getOrderType() {
         return orderType;
     }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+
 
     @Override
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
-                ", quantity=" + quantity +
                 ", orderType=" + orderType +
+                ", orderItems=" + orderItems +
                 '}';
     }
 }

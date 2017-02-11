@@ -1,2 +1,4 @@
-rootProject.name = 'OnlineShop'
-
+rootProject.name = 'GHTLProjects'
+include "JavaExercise"
+include "ShopCheckout"
+include "OnlineShop"
